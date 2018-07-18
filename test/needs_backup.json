@@ -5,40 +5,27 @@
       "Zome": "needs_backup",
       "FnName": "profileCreate",
       "Input": {
-        "age": 0,
-        "name": "a string",
+        "age": 100,
+        "name": "Zo-el",
         "tags": [
-          "a string"
+          "Thats my name"
         ]
       },
       "Output": "%h%"
     },
     {
-      "Convey": "auto-generated test for profileRead",
+      "Convey": "auto-generated test for profile_stringCreate",
       "Zome": "needs_backup",
-      "FnName": "profileRead",
-      "Input": "%h%",
-      "Output": {
-        "age": 0,
-        "name": "a string",
-        "tags": [
-          "a string"
-        ]
-      }
+      "FnName": "profile_stringCreate",
+      "Input": "Sakura",
+      "Output": "%h%"
     },
     {
       "Convey": "auto-generated test for profile_stringCreate",
       "Zome": "needs_backup",
       "FnName": "profile_stringCreate",
-      "Input": "test",
+      "Input": "Saske",
       "Output": "%h%"
-    },
-    {
-      "Convey": "auto-generated test for profile_stringRead",
-      "Zome": "needs_backup",
-      "FnName": "profile_stringRead",
-      "Input": "%h%",
-      "Output": "test"
     }
   ]
 }

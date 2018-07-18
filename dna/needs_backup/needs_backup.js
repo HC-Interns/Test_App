@@ -38,6 +38,13 @@ function profile_stringRead (profile_stringHash) {
  * @return {boolean} success
  */
 function genesis () {
+//Testing
+  var  profileEntry={"age":100,"name":"Zo-el","tags":["Thats my name"]}
+  var   profileString="Sakura"
+
+  commit("profile", profileEntry);
+  commit("profile_string", profileString);
+  commit("profile_string", "Saske");
   return true;
 }
 
@@ -55,17 +62,45 @@ function genesis () {
  * @return {boolean} is valid?
  */
 function validateCommit (entryName, entry, header, pkg, sources) {
+debug("entry_type:"+entryName+"entry"+JSON.stringify(entry)+"header"+JSON.stringify(header)+"PKG: "+JSON.stringify(pkg)+"sources"+sources);
+
+//debug("backup Commit"+JSON.stringify(backup_commit))
+if(validate(entryName, entry, header, pkg, sources)){
+  var backup_commit={"sourceAppDNA":App.DNA.Hash,
+"header": {
+        "type":entryName,
+        "sig":header.Sig,
+        "hash":makeHash(entryName,entry),
+        "time":header.Time,
+        "nextHeader":header.NextHeader,
+        "next":entryName+": "+header.Next,
+        "entry":header.EntryLink,
+      },
+  "content":entry,
+
+  }
+  bridge(appDNAHash, zomeName, functionName, backup_commit)
+  return true;
+}
+return false;
+
+}
+
+function validate(entryName, entry, header, pkg, sources){
   switch (entryName) {
     case "profile":
+    //debug("%header");
+    debug(parseInt(sign(JSON.stringify(entry))));
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "profile_string":
+    debug(sign(entry));
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     default:
       // invalid entry name
       return false;
@@ -168,6 +203,9 @@ function validateLink (entryName, baseHash, links, pkg, sources) {
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
+
+
+
       return false;
     case "profile_string":
       // be sure to consider many edge cases for validating
