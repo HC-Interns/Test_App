@@ -2,8 +2,7 @@
 
 ### Recomended way to use the back-up function
 
----
-
+---javascript
 function validateCommit (entryName, entry, header, pkg, sources) {
 
 if(validate(entryName, entry, header, pkg, sources)){
@@ -35,6 +34,4 @@ function validate(entryName, entry, header, pkg, sources){
       return false;
   }
 }
-
-
 ---
