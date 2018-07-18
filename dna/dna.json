@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "UUID": "6b5c92d6-79db-490b-bc34-bd30e4433a39",
+  "Name": "Test_App",
+  "Properties": {
+    "description": "Helps add crap to test",
+    "language": "en"
+  },
+  "PropertiesSchemaFile": "properties_schema.json",
+  "DHTConfig": {
+    "HashType": "sha2-256"
+  },
+  "Zomes": [
+    {
+      "Name": "needs_backup",
+      "Description": "need to back up this zome",
+      "RibosomeType": "js",
+      "CodeFile": "needs_backup.js",
+      "Entries": [
+        {
+          "Name": "profile",
+          "Required": true,
+          "DataFormat": "json",
+          "Sharing": "public",
+          "SchemaFile": "profile.json"
+        },
+        {
+          "Name": "profile_string",
+          "Required": true,
+          "DataFormat": "string",
+          "Sharing": "public"
+        }
+      ],
+      "Functions": [
+        {
+          "Name": "profileCreate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "profileRead",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "profile_stringCreate",
+          "CallingType": "string",
+          "Exposure": "public"
+        },
+        {
+          "Name": "profile_stringRead",
+          "CallingType": "string",
+          "Exposure": "public"
+        }
+      ]
+    }
+  ]
+}

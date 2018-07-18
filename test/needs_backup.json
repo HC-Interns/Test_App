@@ -1,0 +1,44 @@
+{
+  "Tests": [
+    {
+      "Convey": "auto-generated test for profileCreate",
+      "Zome": "needs_backup",
+      "FnName": "profileCreate",
+      "Input": {
+        "age": 0,
+        "name": "a string",
+        "tags": [
+          "a string"
+        ]
+      },
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for profileRead",
+      "Zome": "needs_backup",
+      "FnName": "profileRead",
+      "Input": "%h%",
+      "Output": {
+        "age": 0,
+        "name": "a string",
+        "tags": [
+          "a string"
+        ]
+      }
+    },
+    {
+      "Convey": "auto-generated test for profile_stringCreate",
+      "Zome": "needs_backup",
+      "FnName": "profile_stringCreate",
+      "Input": "test",
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for profile_stringRead",
+      "Zome": "needs_backup",
+      "FnName": "profile_stringRead",
+      "Input": "%h%",
+      "Output": "test"
+    }
+  ]
+}
